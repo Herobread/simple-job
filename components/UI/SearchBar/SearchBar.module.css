@@ -9,16 +9,19 @@
     font-weight: 500;
     font-size: 16px;
 
-    outline: none;
+    outline: transparent;
     border: none;
     border-radius: 15px;
     width: 100%;
     padding: 10px;
     padding-left: 35px;
+
+    transition: 0.3s;
 }
 
 .input:focus {
     outline: var(--green) 1px solid;
+    border: none;
 }
 
 .input::placeholder {

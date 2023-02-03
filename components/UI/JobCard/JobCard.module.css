@@ -26,7 +26,7 @@
 }
 
 .container::before {
-    transition: 0.3s;
+    transition: 0.2s;
 
     opacity: 0;
 
@@ -41,8 +41,6 @@
     content: '';
     transform: translateX(-200px);
     transform: translateY(-100px);
-
-    transition: 0.4s;
 }
 
 .container:hover:before {
