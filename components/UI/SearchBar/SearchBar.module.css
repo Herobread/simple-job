@@ -1,0 +1,32 @@
+.container {
+    width: 100%;
+    position: relative;
+}
+
+.input {
+    background-color: rgba(var(--lime-rgb), 10%);
+    color: var(--green);
+    font-weight: 500;
+    font-size: 16px;
+
+    outline: none;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    padding: 10px;
+    padding-left: 35px;
+}
+
+.input:focus {
+    outline: var(--green) 1px solid;
+}
+
+.input::placeholder {
+    color: var(--green);
+}
+
+.search {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+}

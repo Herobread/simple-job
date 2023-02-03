@@ -1,9 +1,14 @@
+import Flex from '@/components/layout/Flex'
+import Link from 'next/link'
+import CompactHeader from '../CompactHeader'
 import s from './NavBar.module.css'
 
-interface NavBarProps {
-	children: React.ReactNode
-}
-
-export default function NavBar({ children }: NavBarProps) {
-	return <div className={s.container}>{children}</div>
+export default function NavBar() {
+	return (
+		<Link href="/">
+			<div className={s.container}>
+				<p className={s.title}>SimpleJob</p>
+			</div>
+		</Link>
+	)
 }

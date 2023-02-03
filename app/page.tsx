@@ -4,13 +4,13 @@ import MainLayout from '@/components/layout/MainLayout'
 import JobCard from '@/components/UI/JobCard'
 import JobGrid from '@/components/layout/JobGrid'
 import CompactHeader from '@/components/UI/CompactHeader'
+import SearchBar from '@/components/UI/SearchBar/SearchBar'
 
 export default function Home() {
 	return (
 		<>
 			<MainLayout>
-				<Header>Header</Header>
-				<Text>text</Text>
+				<SearchBar />
 				<CompactHeader accent>Recently added</CompactHeader>
 				<JobGrid>
 					<JobCard
