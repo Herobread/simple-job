@@ -1,15 +1,26 @@
-import Header from '@/components/UI/Header'
-import Text from '@/components/UI/Text'
+'use client'
+
 import MainLayout from '@/components/layout/MainLayout'
-import JobCard from '@/components/UI/JobCard'
-import JobGrid from '@/components/layout/JobGrid'
-import CompactHeader from '@/components/UI/CompactHeader'
-import SearchBar from '@/components/UI/SearchBar/SearchBar'
+import Button from '@/components/UI/Button'
+import Input from '@/components/UI/Input'
+import Flex from '../../components/layout/Flex/Flex'
 
 export default function Admin() {
 	return (
 		<>
-			<MainLayout></MainLayout>
+			<MainLayout>
+				<Input label="aa" />
+				<Input label="bb" />
+				<Flex justifyContent="flex-end">
+					<Button
+						onClick={() => {
+							console.log('first')
+						}}
+					>
+						Log in
+					</Button>
+				</Flex>
+			</MainLayout>
 		</>
 	)
 }

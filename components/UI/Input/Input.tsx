@@ -1,3 +1,4 @@
+import Margin from '@/components/layout/Margin'
 import s from './Input.module.css'
 
 interface InputProps {
@@ -10,7 +11,8 @@ export default function Input({ label, placeholder }: InputProps) {
 		<div className={s.container}>
 			<label>
 				{label}
-				<input placeholder={placeholder} />
+				<Margin height={10} />
+				<input className={s.input} placeholder={placeholder} />
 			</label>
 		</div>
 	)
