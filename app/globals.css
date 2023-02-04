@@ -29,3 +29,8 @@ a {
 
 	--lime-rgb: 36, 229, 137;
 }
+
+input {
+	font-family: inherit;
+	font-size: inherit;
+}

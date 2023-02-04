@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+    display: flex;
+
+    background-color: var(--accent-5);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.left {
+    flex-grow: 1;
+}
