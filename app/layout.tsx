@@ -1,7 +1,10 @@
+'use client'
+
 import './globals.css'
 import { Inter } from '@next/font/google'
 import NavBar from '@/components/UI/NavBar'
 import MainLayout from '@/components/layout/MainLayout'
+import { SessionProvider } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,7 +18,9 @@ export default function RootLayout({
 			<head />
 			<body>
 				<NavBar />
-				<MainLayout>{children}</MainLayout>
+				<SessionProvider>
+					<MainLayout>{children}</MainLayout>
+				</SessionProvider>
 			</body>
 		</html>
 	)

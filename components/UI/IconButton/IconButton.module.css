@@ -1,0 +1,25 @@
+.button {
+    padding: 3px;
+
+    border: none;
+    cursor: pointer;
+
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    transition: 0.1s;
+}
+
+.button svg path {
+    fill: var(--accent-4);
+
+    transition: 0.1s;
+}
+
+.button:hover svg path {
+    fill: var(--accent-1);
+}
+
+.disabled {
+    outline: red 1px solid;
+}

@@ -1,17 +1,28 @@
 'use client'
 
-import MainLayout from '@/components/layout/MainLayout'
 import Button from '@/components/UI/Button'
 import Input from '@/components/UI/Input'
-import Loading from '@/components/UI/Loading'
+import { useState } from 'react'
 import Flex from '../../components/layout/Flex/Flex'
 
 export default function Admin() {
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+
 	return (
 		<>
-			<Loading />
-			<Input label="aa" />
-			<Input label="bb" />
+			<Input
+				label="aa"
+				onChange={(e: React.FormEvent<HTMLInputElement>) => {
+					setUsername(e.currentTarget.value)
+				}}
+			/>
+			<Input
+				label="bb"
+				onChange={(e: React.FormEvent<HTMLInputElement>) => {
+					setPassword(e.currentTarget.value)
+				}}
+			/>
 			<Flex justifyContent="flex-end">
 				<Button
 					onClick={() => {
