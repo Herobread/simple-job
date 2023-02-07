@@ -6,10 +6,12 @@ import SearchBar from '@/components/UI/SearchBar/SearchBar'
 import { Job } from '@/types/Job'
 
 async function fetchJobs() {
-	const res = await fetch(`http://localhost:3000/api/alljobs/`, {
-		method: 'GET',
-		cache: 'no-store',
-	})
+	const res = await fetch(
+		`http://${process.env.NEXT_WEBSITE_URL}/api/alljobs/`,
+		{
+			method: 'GET',
+		}
+	)
 
 	return res.json()
 }
@@ -22,21 +24,24 @@ export default async function Home() {
 	// 	setQuery(e.target.value)
 	// }
 
+	console.log(jobs)
+
 	return (
 		<>
 			<JobGrid>
-				{jobs.map((job: Job) => {
-					return (
-						<JobCard
-							title={job.title}
-							city={job.city}
-							description={job.shortDescription}
-							salary={job.salary}
-							href={job.jobId}
-							key={job.jobId}
-						/>
-					)
-				})}
+				{jobs.map &&
+					jobs.map((job: Job) => {
+						return (
+							<JobCard
+								title={job.title}
+								city={job.city}
+								description={job.shortDescription}
+								salary={job.salary}
+								href={job.jobId}
+								key={job.jobId}
+							/>
+						)
+					})}
 			</JobGrid>
 			{/* <SearchBar onChange={handleQueryChange} />
 			{query ? (

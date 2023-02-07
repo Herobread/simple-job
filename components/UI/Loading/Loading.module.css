@@ -1,27 +1,27 @@
 .container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .loader {
-    width: 24px;
-    height: 24px;
+	width: 24px;
+	height: 24px;
 
-    border: 2px solid var(--lime);
+	border: 2px solid var(--lime);
 
-    border-bottom-color: transparent;
-    border-radius: 50%;
+	border-bottom-color: transparent;
+	border-radius: 50%;
 
-    animation: rotation 1s linear infinite;
+	animation: rotation 1s linear infinite;
 }
 
 @keyframes rotation {
-    0% {
-        transform: rotate(0deg);
-    }
+	0% {
+		transform: rotate(0deg);
+	}
 
-    100% {
-        transform: rotate(360deg);
-    }
+	100% {
+		transform: rotate(360deg);
+	}
 }

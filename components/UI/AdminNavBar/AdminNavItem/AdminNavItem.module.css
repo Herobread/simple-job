@@ -1,3 +1,8 @@
 .item {
-    padding: 10px;
+	padding: 10px;
+}
+
+.active {
+	/* text-decoration: underline; */
+	border-bottom: 2px solid var(--lime);
 }

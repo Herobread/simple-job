@@ -1,7 +1,7 @@
 interface MarginOptions {
-    height: number
+	height: number
 }
 
 export default function Margin({ height }: MarginOptions) {
-    return <div style={{ height: height }}></div>
+	return <div style={{ height: height }}></div>
 }

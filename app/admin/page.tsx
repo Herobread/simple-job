@@ -2,6 +2,7 @@
 
 import Button from '@/components/UI/Button'
 import Input from '@/components/UI/Input'
+import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import Flex from '../../components/layout/Flex/Flex'
 
@@ -30,6 +31,13 @@ export default function Admin() {
 					}}
 				>
 					Log in
+				</Button>
+				<Button
+					onClick={() => {
+						signIn()
+					}}
+				>
+					sign in
 				</Button>
 			</Flex>
 		</>

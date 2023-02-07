@@ -6,8 +6,7 @@ export default async function handler(
 	res: NextApiResponse
 ) {
 	const result = await excuteQuery({
-		query: 'SELECT * FROM `jobs`',
-		values: {},
+		query: `SELECT * FROM \`jobs\``,
 	})
 
 	res.status(200).json(result)

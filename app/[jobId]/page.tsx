@@ -11,17 +11,23 @@ import JobGrid from '@/components/layout/JobGrid'
 import JobCard from '@/components/UI/JobCard'
 
 async function fetchJob(jobId: string | number) {
-	const res = await fetch(`http://localhost:3000/api/${jobId}/`, {
-		method: 'GET',
-	})
+	const res = await fetch(
+		`http://${process.env.NEXT_WEBSITE_URL}/api/${jobId}/`,
+		{
+			method: 'GET',
+		}
+	)
 
 	return res.json()
 }
 
 async function fetchSimilarJobs(jobTitle: string) {
-	const res = await fetch(`http://localhost:3000/api/similar/${jobTitle}/`, {
-		method: 'GET',
-	})
+	const res = await fetch(
+		`http://${process.env.NEXT_WEBSITE_URL}/api/similar/${jobTitle}/`,
+		{
+			method: 'GET',
+		}
+	)
 
 	return res.json()
 }

@@ -16,7 +16,7 @@ const db = mysql({
 
 interface excuteQueryProps {
 	query: string
-	values: any
+	values?: any
 }
 
 /**
@@ -25,13 +25,13 @@ interface excuteQueryProps {
  */
 export default async function executeQuery({
 	query,
-	values,
+	values = {},
 }: excuteQueryProps) {
 	try {
 		const results = await db.query(query, values)
 		await db.end()
 		return results
-	} catch (error) {
-		return { error }
+	} catch (error: any) {
+		return error.message
 	}
 }

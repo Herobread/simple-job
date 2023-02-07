@@ -1,25 +1,25 @@
 .button {
-    padding: 3px;
+	padding: 3px;
 
-    border: none;
-    cursor: pointer;
+	border: none;
+	cursor: pointer;
 
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    transition: 0.1s;
+	background-color: transparent;
+	display: flex;
+	align-items: center;
+	transition: 0.1s;
 }
 
 .button svg path {
-    fill: var(--accent-4);
+	fill: var(--accent-4);
 
-    transition: 0.1s;
+	transition: 0.1s;
 }
 
 .button:hover svg path {
-    fill: var(--accent-1);
+	fill: var(--accent-1);
 }
 
 .disabled {
-    outline: red 1px solid;
+	outline: red 1px solid;
 }
