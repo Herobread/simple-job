@@ -12,7 +12,7 @@ import JobCard from '@/components/UI/JobCard'
 
 async function fetchJob(jobId: string | number) {
 	const res = await fetch(
-		`http://${process.env.NEXT_WEBSITE_URL}/api/${jobId}/`,
+		`http://${process.env.NEXTAUTH_URL}/api/${jobId}/`,
 		{
 			method: 'GET',
 		}
@@ -23,7 +23,7 @@ async function fetchJob(jobId: string | number) {
 
 async function fetchSimilarJobs(jobTitle: string) {
 	const res = await fetch(
-		`http://${process.env.NEXT_WEBSITE_URL}/api/similar/${jobTitle}/`,
+		`http://${process.env.NEXTAUTH_URL}/api/similar/${jobTitle}/`,
 		{
 			method: 'GET',
 		}

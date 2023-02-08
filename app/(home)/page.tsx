@@ -6,12 +6,9 @@ import SearchBar from '@/components/UI/SearchBar/SearchBar'
 import { Job } from '@/types/Job'
 
 async function fetchJobs() {
-	const res = await fetch(
-		`http://${process.env.NEXT_WEBSITE_URL}/api/alljobs/`,
-		{
-			method: 'GET',
-		}
-	)
+	const res = await fetch(`http://${process.env.NEXTAUTH_URL}/api/alljobs/`, {
+		method: 'GET',
+	})
 
 	return res.json()
 }

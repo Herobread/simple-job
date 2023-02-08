@@ -7,7 +7,7 @@ interface ButtonOptions {
 	[key: string]: unknown
 }
 
-export default function Button({
+export default function IconButton({
 	disabled,
 	children,
 	...props

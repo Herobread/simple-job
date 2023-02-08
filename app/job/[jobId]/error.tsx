@@ -5,7 +5,7 @@ import Button from '@/components/UI/Button'
 import Text from '@/components/UI/Text'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import CompactHeader from '../../components/UI/CompactHeader/CompactHeader'
+import CompactHeader from '../../../components/UI/CompactHeader/CompactHeader'
 
 export default function Error({
 	error,
