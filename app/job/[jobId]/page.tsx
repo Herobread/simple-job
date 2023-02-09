@@ -11,19 +11,16 @@ import JobGrid from '@/components/layout/JobGrid'
 import JobCard from '@/components/UI/JobCard'
 
 async function fetchJob(jobId: string | number) {
-	const res = await fetch(
-		`http://${process.env.NEXTAUTH_URL}/api/${jobId}/`,
-		{
-			method: 'GET',
-		}
-	)
+	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/${jobId}/`, {
+		method: 'GET',
+	})
 
 	return res.json()
 }
 
 async function fetchSimilarJobs(jobTitle: string) {
 	const res = await fetch(
-		`http://${process.env.NEXTAUTH_URL}/api/similar/${jobTitle}/`,
+		`${process.env.NEXTAUTH_URL}/api/similar/${jobTitle}/`,
 		{
 			method: 'GET',
 		}
@@ -38,8 +35,6 @@ interface JobsSectionsProps {
 }
 
 function GenerateSimilarJobsSection({ jobs, jobId }: JobsSectionsProps) {
-	console.log(jobs)
-
 	jobs = jobs.filter((job) => {
 		return job.jobId.toString() !== jobId
 	})
@@ -56,7 +51,7 @@ function GenerateSimilarJobsSection({ jobs, jobId }: JobsSectionsProps) {
 							city={job.city}
 							description={job.shortDescription}
 							salary={job.salary}
-							href={job.jobId}
+							href={`job/${job.jobId}`}
 							title={job.title}
 							key={job.jobId}
 						/>
@@ -76,7 +71,7 @@ export default async function Home({ params }: HomeProps) {
 	const data = await fetchJob(jobId)
 
 	if (!data) {
-		throw 'aa'
+		throw 'No data'
 	}
 
 	const job: Job = data[0]
@@ -98,7 +93,7 @@ export default async function Home({ params }: HomeProps) {
 					</IconButton>
 				</Link>
 			</BigLeftSplit>
-			<Text>{longDescription}</Text>
+			<Text lineHeight="180%">{longDescription}</Text>
 			<BigLeftSplit>
 				<Text>{email}</Text>
 				<Text>{city}</Text>

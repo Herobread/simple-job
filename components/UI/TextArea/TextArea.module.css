@@ -1,0 +1,15 @@
+.textarea {
+	width: 100%;
+	padding: 12px 10px;
+	border-radius: 15px;
+	border: none;
+	resize: vertical;
+	font-family: inherit;
+	font-size: inherit;
+
+	outline: 1px solid var(--accent-4);
+}
+
+.textarea:focus {
+	outline: 1px solid var(--accent-2);
+}

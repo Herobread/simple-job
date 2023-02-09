@@ -6,7 +6,7 @@ import SearchBar from '@/components/UI/SearchBar/SearchBar'
 import { Job } from '@/types/Job'
 
 async function fetchJobs() {
-	const res = await fetch(`http://${process.env.NEXTAUTH_URL}/api/alljobs/`, {
+	const res = await fetch(`${process.env.NEXTAUTH_URL}/api/alljobs/`, {
 		method: 'GET',
 	})
 
@@ -21,8 +21,6 @@ export default async function Home() {
 	// 	setQuery(e.target.value)
 	// }
 
-	console.log(jobs)
-
 	return (
 		<>
 			<JobGrid>
@@ -34,7 +32,7 @@ export default async function Home() {
 								city={job.city}
 								description={job.shortDescription}
 								salary={job.salary}
-								href={job.jobId}
+								href={`job/${job.jobId}`}
 								key={job.jobId}
 							/>
 						)

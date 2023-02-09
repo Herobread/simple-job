@@ -3,3 +3,7 @@
 	font-weight: 400;
 	color: var(--accent-1);
 }
+
+.red {
+	color: var(--red);
+}

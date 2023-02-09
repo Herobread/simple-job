@@ -28,9 +28,16 @@ a {
 	--accent-6: #ffffff;
 
 	--lime-rgb: 36, 229, 137;
+
+	--red: tomato;
 }
 
 input {
 	font-family: inherit;
 	font-size: inherit;
+}
+
+html {
+	overflow-y: scroll;
+	/* Show vertical scrollbar */
 }
