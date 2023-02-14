@@ -2,7 +2,7 @@ import MainLayout from '@/components/layout/MainLayout'
 import JobCard from '@/components/UI/JobCard'
 import JobGrid from '@/components/layout/JobGrid'
 import CompactHeader from '@/components/UI/CompactHeader'
-import SearchBar from '@/components/UI/SearchBar/SearchBar'
+// import SearchBar from '@/components/UI/SearchBar/SearchBar'
 import { Job } from '@/types/Job'
 
 async function fetchJobs() {
@@ -15,14 +15,10 @@ async function fetchJobs() {
 
 export default async function Home() {
 	const jobs = await fetchJobs()
-	// const [query, setQuery] = useState<string>('')
-
-	// const handleQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-	// 	setQuery(e.target.value)
-	// }
 
 	return (
 		<>
+			{/* <SearchBar onChange={() => {}} /> */}
 			<JobGrid>
 				{jobs.map &&
 					jobs.map((job: Job) => {

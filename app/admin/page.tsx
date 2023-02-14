@@ -31,7 +31,6 @@ export default function SignIn() {
 	})
 
 	const onSubmit: SubmitHandler<FormData> = (data) => {
-		console.log(data)
 		signIn('credentials', {
 			username: data.username,
 			password: data.password,
@@ -69,7 +68,11 @@ export default function SignIn() {
 						control={control}
 						rules={{ required: 'This field is required' }}
 						render={({ field }) => (
-							<Input label="Password" {...field} />
+							<Input
+								type="password"
+								label="Password"
+								{...field}
+							/>
 						)}
 					/>
 					<Text color="red">

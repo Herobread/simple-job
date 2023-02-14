@@ -20,6 +20,8 @@ export default function JobCard({
 	city,
 	href,
 }: JobCardProps) {
+	if (!salary) salary = 0
+
 	salary = salary.toLocaleString()
 	return (
 		<Link href={href.toString()}>

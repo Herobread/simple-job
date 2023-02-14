@@ -11,6 +11,9 @@ import { usePathname } from 'next/navigation'
 import { useForm, Controller, SubmitHandler } from 'react-hook-form'
 import Text from '@/components/UI/Text'
 import TextArea from '@/components/UI/TextArea'
+import { APIErrorInfo } from '@/types/Error'
+import { useState } from 'react'
+import InfoPanel from '@/components/UI/InfoPanel'
 
 interface FormData {
 	title: string
@@ -22,28 +25,30 @@ interface FormData {
 }
 
 export default function Add() {
+	const [message, setMessage] = useState('')
+	const [color, setColor] = useState<'red' | 'lime' | ''>('')
+
 	const {
 		control,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<FormData>({
 		defaultValues: {
-			city: '',
-			email: '',
-			longDescription: '',
-			salary: '',
-			shortDescription: '',
-			title: '',
+			// city: '',
+			// email: '',
+			// longDescription: '',
+			// salary: '',
+			// shortDescription: '',
+			// title: '',
+			city: 'New York',
+			email: 'john.doe@example.com',
+			longDescription:
+				'We are looking for an experienced Software Engineer to join our team and help us build and maintain our flagship product. The ideal candidate will have a strong background in software development, excellent problem-solving skills, and a passion for writing clean and efficient code.',
+			salary: '100000',
+			shortDescription:
+				'Experienced Software Engineer wanted for leading tech company in NYC',
+			title: 'C++ Developer',
 		},
-		// defaultValues: {
-		// 	city: 'Warsaw',
-		// 	email: 'warsaw@company.co',
-		// 	longDescription:
-		// 		'Work on a project basis as a freelance graphic designer and join a growing network of creatives Work on a project basis as a freelance graphic designer and join a growing network of creatives Work on a project basis as a freelance graphic designer and join a growing network of creatives',
-		// 	salary: '65000',
-		// 	shortDescription: 'Work on a project basis as a freelance graphic',
-		// 	title: 'Freelance Graphic Designer',
-		// },
 	})
 
 	const onSubmit: SubmitHandler<FormData> = async (data) => {
@@ -58,6 +63,22 @@ export default function Add() {
 			`${process.env.NEXTAUTH_URL}/api/createJob`,
 			requestParams
 		)
+			.then(async (response) => {
+				let data: APIErrorInfo = await response.json()
+
+				if (response.status >= 400 && response.status < 600) {
+					throw new Error(data.message)
+				}
+				return response
+			})
+			.then(() => {
+				setColor('lime')
+				setMessage('Job posting created successfuly')
+			})
+			.catch((err) => {
+				setColor('red')
+				setMessage(err.message)
+			})
 	}
 
 	return (
@@ -204,6 +225,11 @@ export default function Add() {
 					<Text color="red">
 						{errors.salary && errors.salary.message}
 					</Text>
+					{message && (
+						<InfoPanel>
+							<Text color={color}>{message}</Text>
+						</InfoPanel>
+					)}
 					<Flex justifyContent="flex-end">
 						<Button type="submit">Create</Button>
 					</Flex>

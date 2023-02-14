@@ -4,6 +4,7 @@ import s from './AdminNavBar.module.css'
 import AdminNavItem from './AdminNavItem'
 import IconButton from '../IconButton/IconButton'
 import Button from '../Button'
+import AdminNavButton from './AdminNavButton'
 
 interface AdminNavBarProps {
 	page: string
@@ -30,13 +31,14 @@ export default function AdminNavBar({ page }: AdminNavBarProps) {
 				</AdminNavItem>
 			</div>
 			<div className={s.right}>
-				<button
+				<AdminNavButton
+					href="/admin"
 					onClick={() => {
 						signOut()
 					}}
 				>
 					Sign out
-				</button>
+				</AdminNavButton>
 			</div>
 		</div>
 	)

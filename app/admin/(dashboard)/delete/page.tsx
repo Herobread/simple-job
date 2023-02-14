@@ -11,12 +11,18 @@ import { usePathname } from 'next/navigation'
 import { useForm, Controller, SubmitHandler } from 'react-hook-form'
 import Text from '@/components/UI/Text'
 import TextArea from '@/components/UI/TextArea'
+import { useState } from 'react'
+import type { APIErrorInfo } from '@/types/Error'
+import InfoPanel from '@/components/UI/InfoPanel'
 
 interface FormData {
 	jobId: string
 }
 
 export default function Delete() {
+	const [message, setMessage] = useState('')
+	const [color, setColor] = useState<'red' | 'lime' | ''>('')
+
 	const {
 		control,
 		handleSubmit,
@@ -33,14 +39,23 @@ export default function Delete() {
 			body: JSON.stringify({ data: data }),
 		}
 
-		console.log(`${process.env.NEXTAUTH_URL}/api/deleteJob/`)
+		await fetch(`${process.env.NEXTAUTH_URL}/api/deleteJob/`, requestParams)
+			.then(async (response) => {
+				let data: APIErrorInfo = await response.json()
 
-		const res = await fetch(
-			`${process.env.NEXTAUTH_URL}/api/deleteJob/`,
-			requestParams
-		)
-
-		console.log(res)
+				if (response.status >= 400 && response.status < 600) {
+					throw new Error(data.message)
+				}
+				return response
+			})
+			.then(() => {
+				setColor('lime')
+				setMessage('Deleted successfuly')
+			})
+			.catch((err) => {
+				setColor('red')
+				setMessage(err.message)
+			})
 	}
 
 	return (
@@ -63,7 +78,11 @@ export default function Delete() {
 					<Text color="red">
 						{errors.jobId && errors.jobId.message}
 					</Text>
-
+					{message && (
+						<InfoPanel>
+							<Text color={color}>{message}</Text>
+						</InfoPanel>
+					)}
 					<Flex justifyContent="flex-end">
 						<Button type="submit">Delete</Button>
 					</Flex>

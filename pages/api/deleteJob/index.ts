@@ -5,16 +5,26 @@ export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse
 ) {
-	console.log('somethin')
+	try {
+		const { data } = JSON.parse(req.body)
+		const { jobId } = data
 
-	const { data } = JSON.parse(req.body)
-	const { jobId } = data
+		const query = `DELETE FROM \`jobs\` WHERE jobId=${jobId}`
 
-	const query = `DELETE FROM \`jobs\` WHERE jobId=${jobId}`
+		console.log(query)
+		const result: any = await excuteQuery({ query: query })
 
-	console.log(query)
-	const ress = await excuteQuery({ query: query })
-	console.log(ress)
+		console.log(result)
 
-	res.status(200).json({ status: 'ok' })
+		if (result.affectedRows == 0) {
+			// no jobs affected
+			res.status(500).json({ message: 'Job doesn`t exist' })
+		}
+
+		res.status(200).json({})
+	} catch (error) {
+		res.status(500).json({
+			message: `An error has occured: ${error.message}`,
+		})
+	}
 }

@@ -32,6 +32,6 @@ export default async function executeQuery({
 		await db.end()
 		return results
 	} catch (error: any) {
-		return error.message
+		throw error
 	}
 }

@@ -1,35 +1,35 @@
 .container {
-	width: 100%;
-	position: relative;
+    width: 100%;
+    position: relative;
 }
 
 .input {
-	background-color: rgba(var(--lime-rgb), 10%);
-	color: var(--green);
-	font-weight: 500;
-	font-size: 16px;
+    background-color: rgba(var(--lime-rgb), 10%);
+    color: var(--green);
+    font-weight: 500;
+    font-size: 16px;
 
-	outline: transparent;
-	border: none;
-	border-radius: 15px;
-	width: 100%;
-	padding: 10px;
-	padding-left: 35px;
+    outline: transparent;
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    padding: 10px;
+    padding-left: 35px;
 
-	transition: 0.3s;
+    transition: 0.3s;
 }
 
 .input:focus {
-	outline: var(--green) 1px solid;
-	border: none;
+    outline: var(--green) 1px solid;
+    border: none;
 }
 
 .input::placeholder {
-	color: var(--green);
+    color: var(--green);
 }
 
 .search {
-	position: absolute;
-	top: 6px;
-	left: 6px;
+    position: absolute;
+    top: 6px;
+    left: 6px;
 }

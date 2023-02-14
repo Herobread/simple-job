@@ -70,7 +70,7 @@ export default async function Home({ params }: HomeProps) {
 	const { jobId } = params
 	const data = await fetchJob(jobId)
 
-	if (!data) {
+	if (!data || !data[0]) {
 		throw 'No data'
 	}
 
